@@ -6,11 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
-    "start:dev": "nodemon contact"
+    "start:dev": "nodemon index"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "2.0.15"
+  },
+  "dependencies": {
+    "yargs": "^17.4.1"
   }
 }
