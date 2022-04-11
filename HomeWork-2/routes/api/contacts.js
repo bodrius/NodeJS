@@ -1,16 +1,14 @@
 const express = require("express");
-
 const router = express.Router();
 
 const {
-  getContactById,
+  addContact,
   listContacts,
   removeContact,
-  addContact,
   updateContact,
+  getContactById,
 } = require("../../src/functions");
-
-const scheme = require("../../src/validationSchema");
+const { createContactSchema } = require("../schemas/createContactSchema");
 
 router.get("/", async (req, res, next) => {
   try {
@@ -40,16 +38,14 @@ router.post("/", async (req, res, next) => {
   try {
     const { name, email, phone } = req.body;
 
-    await scheme.CreateUserScheme.validateAsync({
+    await createContactSchema.validateAsync({
       name: name,
       email: email,
       phone: phone,
     });
-    // if (validate) {
     await addContact(name, email, phone);
 
     res.status(201).json({ data: "USER CREATED" });
-    // }
   } catch (error) {
     res.status(404).json({ message: error });
   }
