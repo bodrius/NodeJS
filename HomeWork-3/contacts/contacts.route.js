@@ -11,31 +11,18 @@ router.post(
 );
 
 // R - read
-
 router.get("/", ContactsController.getAllContacts);
+
 router.get("/:id", ContactsController.getContactById);
 
-// router.get("/:contactId", async (req, res, next) => {
-//   try {
-//   } catch (error) {
-//     res.status(501).json({ message: "internal server error" });
-//   }
-// });
+// U - update
+router.put(
+  "/:id",
+  ContactsController.validateUpdateContact,
+  ContactsController.updateContact
+);
 
-// // U - update
-// router.put("/:contactId", async (req, res, next) => {
-//   try {
-//   } catch (error) {
-//     res.status(501).json({ message: "internal server error" });
-//   }
-// });
-
-// // D - delete
-// router.delete("/:contactId", async (req, res, next) => {
-//   try {
-//   } catch (error) {
-//     res.status(501).json({ message: "internal server error" });
-//   }
-// });
+// D - delete
+router.delete("/:id", ContactsController.deleteContact);
 
 module.exports = router;

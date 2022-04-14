@@ -28,8 +28,8 @@ const contactSchema = new Schema(
 contactSchema.statics.createContactOne = createContactOne;
 contactSchema.statics.getAllContacts = getAllContacts;
 contactSchema.statics.getContactById = getContactById;
-// contactSchema.static.updateContact = updateContact;
-// contactSchema.static.deleteContact = deleteContact;
+contactSchema.statics.updateContact = updateContact;
+contactSchema.statics.deleteContact = deleteContact;
 
 //collection name -->> contacts
 export const ContactModel = model("Contact", contactSchema);
